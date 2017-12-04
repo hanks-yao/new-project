@@ -14,7 +14,7 @@ import NoticeIcon from '../components/NoticeIcon';
 import GlobalFooter from '../components/GlobalFooter';
 import NotFound from '../routes/Exception/404';
 import styles from './BasicLayout.less';
-import logo from '../assets/logo.svg';
+import logo from '../assets/logo_01.png';
 
 const { Header, Sider, Content } = Layout;
 const { SubMenu } = Menu;
@@ -266,13 +266,13 @@ class BasicLayout extends React.PureComponent {
           collapsed={collapsed}
           breakpoint="md"
           onCollapse={this.onCollapse}
-          width={256}
+          width={200}
           className={styles.sider}
         >
           <div className={styles.logo}>
             <Link to="/">
               <img src={logo} alt="logo" />
-              <h1>Ant Design Pro</h1>
+              <h1>Bilin Tech</h1>
             </Link>
           </div>
           <Menu
@@ -293,7 +293,7 @@ class BasicLayout extends React.PureComponent {
               type={collapsed ? 'menu-unfold' : 'menu-fold'}
               onClick={this.toggle}
             />
-            <div className={styles.right}>
+            <div className={styles.right} style={{ display: 'none' }}>
               <HeaderSearch
                 className={`${styles.action} ${styles.search}`}
                 placeholder="站内搜索"
@@ -346,41 +346,26 @@ class BasicLayout extends React.PureComponent {
             </div>
           </Header>
           <Content style={{ margin: '24px 24px 0', height: '100%' }}>
-            <div style={{ minHeight: 'calc(100vh - 260px)' }}>
-              <Switch>
-                {
-                  getRouteData('BasicLayout').map(item =>
-                    (
-                      <Route
-                        exact={item.exact}
-                        key={item.path}
-                        path={item.path}
-                        component={item.component}
-                      />
-                    )
+            <Switch>
+              {
+                getRouteData('BasicLayout').map(item =>
+                  (
+                    <Route
+                      exact={item.exact}
+                      key={item.path}
+                      path={item.path}
+                      component={item.component}
+                    />
                   )
-                }
-                <Redirect exact from="/" to="/dashboard/analysis" />
-                <Route component={NotFound} />
-              </Switch>
-            </div>
+                )
+              }
+              <Redirect exact from="/" to="/report" />
+              <Route component={NotFound} />
+            </Switch>
             <GlobalFooter
-              links={[{
-                title: 'Pro 首页',
-                href: 'http://pro.ant.design',
-                blankTarget: true,
-              }, {
-                title: 'GitHub',
-                href: 'https://github.com/ant-design/ant-design-pro',
-                blankTarget: true,
-              }, {
-                title: 'Ant Design',
-                href: 'http://ant.design',
-                blankTarget: true,
-              }]}
               copyright={
                 <div>
-                  Copyright <Icon type="copyright" /> 2017 蚂蚁金服体验技术部出品
+                  Copyright <Icon type="copyright" /> 2017 Bilin
                 </div>
               }
             />

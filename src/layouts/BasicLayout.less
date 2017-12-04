@@ -1,6 +1,7 @@
 @import "~antd/lib/style/themes/default.less";
 
 .header {
+  height: 56px;
   padding: 0 12px 0 0;
   background: #fff;
   box-shadow: 0 1px 4px rgba(0, 21, 41, .08);
@@ -8,10 +9,10 @@
 }
 
 .logo {
-  height: 64px;
+  height: 56px;
   position: relative;
-  line-height: 64px;
-  padding-left: (@menu-collapsed-width - 32px) / 2;
+  line-height: 56px;
+  padding-left: 24px;
   transition: all .3s;
   background: #002140;
   overflow: hidden;
@@ -31,9 +32,16 @@
   }
 }
 
-i.trigger {
+:global(.ant-layout-sider-collapsed) .logo {
+  padding-left: 24px;
+  > a {
+    width: 32px;
+  }
+}
+
+.trigger {
   font-size: 20px;
-  line-height: 64px;
+  line-height: 56px;
   cursor: pointer;
   transition: all .3s;
   padding: 0 24px;

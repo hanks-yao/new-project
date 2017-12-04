@@ -1,0 +1,96 @@
+{
+    "parser": "babel-eslint",
+    "extends": "airbnb", //
+    "plugins": ["compat"],
+    "env": {
+        "browser": true,
+        "node": true,
+        "es6": true,
+        "mocha": true,
+        "jest": true,
+        "jasmine": true
+    },
+    "rules": {
+        //规定generator函数中星号前后的空白
+        "generator-star-spacing": [0],
+        //不同分支的return语句不能返回不同的类型，要么一致要么都没有
+        "consistent-return": [0],
+        //Forbid certain propTypes
+        "react/forbid-prop-types": [0],
+        // Restrict file extensions that may contain JSX
+        "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
+        //强制require()出现在模块作用域的顶部
+        "global-require": [1],
+        //Prefer a default export if module exports a single name
+        "import/prefer-default-export": [0],
+        //Prevent usage of .bind() and arrow functions in JSX props
+        "react/jsx-no-bind": [0],
+        //Prevent missing props validation in a React component definition
+        "react/prop-types": [0],
+        //Enforce stateless React Components to be written as a pure function
+        "react/prefer-stateless-function": [0],
+        //禁止 if 语句中 return 语句之后有 else 块
+        "no-else-return": [0],
+        //禁用特定的语法
+        "no-restricted-syntax": [0],
+        //Forbid the use of extraneous packages
+        "import/no-extraneous-dependencies": [0],
+        //禁止在变量定义之前使用它们
+        "no-use-before-define": [0],
+        //Enforce that non-interactive, visible elements (such as <div>) that have click handlers use the role attribute.
+        "jsx-a11y/no-static-element-interactions": [0],
+        //Non-interactive elements should not be assigned mouse or keyboard event listeners.
+        "jsx-a11y/no-noninteractive-element-interactions": [0],
+        //Enforce a clickable non-interactive element has at least one keyboard event listener.
+        "jsx-a11y/click-events-have-key-events": [0],
+        //Enforce all anchors are valid, navigable elements.
+        "jsx-a11y/anchor-is-valid": [0],
+        //禁用嵌套的三元表达式
+        "no-nested-ternary": [0],
+        //要求箭头函数体使用大括号
+        "arrow-body-style": [0],
+        //Ensure consistent use of file extension within the import path
+        "import/extensions": [0],
+        //禁用按位运算符
+        "no-bitwise": [0],
+        //禁止条件表达式中出现赋值操作符
+        "no-cond-assign": [0],
+        //Ensure imports point to a file/module that can be resolved.
+        "import/no-unresolved": [0],
+        // 要求或禁止末尾逗号
+        "comma-dangle": ["error", {
+          "arrays": "always-multiline",
+          "objects": "always-multiline",
+          "imports": "always-multiline",
+          "exports": "always-multiline",
+          "functions": "ignore"
+        }],
+        //强制大括号内换行符的一致性
+        "object-curly-newline": [0],
+        //强制函数内换行符的一致性
+        "function-paren-newline": [0],
+        //禁用特定的全局变量
+        "no-restricted-globals": [0],
+        //要求 generator 函数内有 yield
+        "require-yield": [1],
+        "compat/compat": "error",
+        //强制使用一致的换行符风格
+        "linebreak-style": [0],
+        "max-len": [0],
+        "prefer-destructuring": ["error", {
+          "array": false,
+          "object": true
+        }, {
+          "enforceForRenamedProperties": false
+        }]
+    },
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true,
+        "experimentalObjectRestSpread": true //启用解构赋值和扩展语法
+      }
+    },
+    "settings": {
+      "polyfills": ["fetch"]
+    }
+}
