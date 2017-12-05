@@ -314,7 +314,7 @@ const columns = [
     title: 'Impressions',
     dataIndex: 'impressions',
     key: 'impressions',
-    width: 210,
+    width: 220,
     render: val => (
       <p style={{ textAlign: 'right' }}>
         {val}
@@ -344,12 +344,19 @@ const columns = [
     title: 'Industry',
     dataIndex: 'industry',
     key: 'industry',
-    width: 500,
+    width: 200,
+    render: val => (
+      <p style={{ overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}>
+        <Tooltip title={val}>
+          {val}
+        </Tooltip>
+      </p>
+    ),
   }, {
     title: '# of Employees',
     dataIndex: 'employees',
     key: 'employees',
-    width: 360,
+    width: 300,
     render: val => (
       <p style={{ textAlign: 'right' }}>
         {val}
@@ -553,8 +560,8 @@ export default class Account extends Component {
           <FormItem label="Visitors">
             <Radio.Group defaultValue="all" size="small">
               <Radio.Button value="all">All</Radio.Button>
-              <Radio.Button value="new">new</Radio.Button>
-              <Radio.Button value="old">old</Radio.Button>
+              <Radio.Button value="new">New</Radio.Button>
+              <Radio.Button value="old">Old</Radio.Button>
             </Radio.Group>
           </FormItem>
 
@@ -673,14 +680,14 @@ export default class Account extends Component {
                 /> */}
               <ReactEcharts
                 option={op1}
-                style={{ height: '350px', width: '100%' }}
+                style={{ height: '350px' }}
                 className="react_for_echarts"
               />
             </Col>
             <Col md={16} sm={24}>
               <ReactEcharts
                 option={op2}
-                style={{ height: '350px', width: '100%' }}
+                style={{ height: '350px' }}
                 className="react_for_echarts"
               />
             </Col>
@@ -691,6 +698,7 @@ export default class Account extends Component {
           <Table
             bordered="false"
             pagination="true"
+            size="middle"
             columns={columns}
             dataSource={tableData}
             rowSelection={{}}

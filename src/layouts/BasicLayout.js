@@ -264,7 +264,7 @@ class BasicLayout extends React.PureComponent {
           trigger={null}
           collapsible
           collapsed={collapsed}
-          breakpoint="md"
+          breakpoint="xl"
           onCollapse={this.onCollapse}
           width={200}
           className={styles.sider}
